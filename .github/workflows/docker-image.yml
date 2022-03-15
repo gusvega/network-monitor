@@ -16,10 +16,10 @@ jobs:
       run: docker build . --file Dockerfile --tag network-monitor:1.0.0
     - name: Check image was created
       run: docker image ls
-    - name: Login to Docker Hub
-      run: docker login -u guxvega -p f1d30dba-94ad-45b1-9196-13bc2dc24fbf
+    - name: Login to Azure Container Registry
+      run: docker login appgus.azurecr.io --username appgus --password xIgsFpfaY/2uNIt5nN46nZCWujUm341S
     - name: Check if logged in successfully
       run: docker image ls
-    - name: Push Image to Docker Hub
-      run: docker push network-monitor:1.0.0
+    - name: Push Image to Azure Container Registry
+      run: docker push appgus.azurecr.io/network-monitor
 
