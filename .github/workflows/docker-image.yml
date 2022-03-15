@@ -22,4 +22,8 @@ jobs:
       run: docker image ls
     - name: Push Image to Azure Container Registry
       run: docker push appgus.azurecr.io/network-monitor:1.0.0
+    - name: Install Azure CLI
+      run: sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
+    - name: Check Azure CLI is https://aka.ms/InstallAzureCLIDeb
+      run: az --version
 
