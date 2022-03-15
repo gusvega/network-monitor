@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag network-monitor:1.0.0
+      run: docker build . --file Dockerfile --tag appgus.azurecr.io/network-monitor:1.0.0
     - name: Check image was created
       run: docker image ls
     - name: Login to Azure Container Registry
