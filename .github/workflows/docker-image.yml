@@ -26,4 +26,13 @@ jobs:
       run: sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
     - name: Check Azure CLI is https://aka.ms/InstallAzureCLIDeb
       run: az --version
+    - name: Login to Azure CLI
+      run: az login -u ${{ secrets.AZ_USERNAME }} -p ${{ secrets.AZ_PASSWORD }}
+    - name: Install AKS CLI
+      run: az aks install-cli
+    - name: Get credentials for AKS Cluster
+      run: az aks get-credentials --resource-group automation --name APPAKSDEV01
+    - name: List nodes
+      run: kubectl get nodes
+
 
