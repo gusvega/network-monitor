@@ -3,8 +3,6 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
 
@@ -18,3 +16,10 @@ jobs:
       run: docker build . --file Dockerfile --tag network-monitor:$(date +%s)
     - name: Check image was created
       run: docker image ls
+    - name: Login to Docker Hub
+      run: docker login -u guxvega -p 388a4aaa-d5e2-4118-bf0a-6d552df62616
+    - name: Check if logged in successfully
+      run: docker image ls
+    - name: Push Image to Docker Hub
+      run: docker push network-monitor:$(date +%s)
+
